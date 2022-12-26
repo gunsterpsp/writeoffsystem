@@ -1,0 +1,96 @@
+<%- include('../includes/include_main_header') %>
+        
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-box"></i>
+                  </span> Branch Locations
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBackdrop">
+                        <i class="mdi mdi-account-plus"></i>
+                        Add a new branch
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-12 stretch-card grid-margin">
+                  <div class="card bg-gradient-dark card-img-holder text-white">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                      <table class="table table-dark" id="example" style="width: 100%;">
+                        <thead>
+                          <tr>
+                            <div class="table-responsive">
+                            <th scope="col">Branch No.</th>
+                            <th scope="col">Branch Location</th>
+                            <th scope="col">Branch Head</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Delete</th>
+                            </div>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- content-wrapper ends -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="addBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add new a branch</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="branch_location" placeholder="Provide a branch location">
+        </div>
+        <input type="text" class="form-control" id="branch_head" placeholder="Provide a branch head">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="addBranch">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="EditBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Update a branch</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="u_branchcode">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="u_branch_location" placeholder="Provide a branch location">
+      </div>
+        <input type="text" class="form-control" id="u_branch_head" placeholder="Provide a branch head">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="editBranch">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('../includes/include_main_footer.ejs') %>
+
+<script src="js/branches.js"></script>
+

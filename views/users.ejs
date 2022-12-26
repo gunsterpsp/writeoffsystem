@@ -1,0 +1,266 @@
+<%- include('../includes/include_main_header') %>
+
+        
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-box"></i>
+                  </span> User Accounts
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUsers">
+                        <i class="mdi mdi-account-plus"></i>
+                        Add new user
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-12 stretch-card grid-margin">
+                  <div class="card bg-gradient-dark card-img-holder text-white">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                      <table class="table table-dark" id="example" style="width: 100%;">
+                        <thead>
+                          <tr>
+                            <div class="table-responsive">
+                            <th scope="col">Id</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Branch Location</th>
+                            <th scope="col">Area Location</th>
+                            <th scope="col">District Location</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Delete</th>
+                            </div>
+                          </tr>
+                        </thead>
+                      </table>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- content-wrapper ends -->
+
+
+<div class="modal fade" id="addUsers" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel">Add accounts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-1">
+          <button class="btn btn-danger form-control" id="btnBranch">Branch Head/Riders/LC/LP</button>
+        </div>
+        <div class="mb-1">
+          <button class="btn btn-success form-control" id="btnArea">Area Supervisors</button>
+        </div>
+        <div class="mb-1">
+          <button class="btn btn-info form-control" id="btnDistrict">District Managers</button>
+        </div>
+        <div class="mb-1">
+          <button class="btn btn-warning form-control" id="btnHO">Head Office</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- HO  Modal -->
+<div class="modal fade" id="addBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Accounts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="full_name" placeholder="Provide a full name">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="username" placeholder="Provide a username">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="password" placeholder="Provide a password">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="email" placeholder="Provide an email">
+      </div>
+        <select name="" class="form-select" id="user_code" style="width: 100%;">
+        </select>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="addUser">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- DM Modal -->
+<div class="modal fade" id="dmBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Accounts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="dm_full_name" placeholder="Provide a full name">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="dm_username" placeholder="Provide a username">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="dm_password" placeholder="Provide a password">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="dm_email" placeholder="Provide an email">
+      </div>
+        <select name="" class="form-select" id="dm_code" style="width: 100%;">
+        </select>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="addDM">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- AS Modal -->
+<div class="modal fade" id="ASBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Accounts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="as_full_name" placeholder="Provide a full name">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="as_username" placeholder="Provide a username">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="as_password" placeholder="Provide a password">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="as_email" placeholder="Provide an email">
+      </div>
+      <div class="mb-3">
+        <select name="" class="form-select" id="as_dm_code" style="width: 100%;"></select>
+      </div>
+        <select name="" class="form-select" id="as_code" style="width: 100%;"></select>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="addAS">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- BRANCH Modal -->
+<div class="modal fade" id="branchBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Accounts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="bh_full_name" placeholder="Provide a full name">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="bh_username" placeholder="Provide a username">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="bh_password" placeholder="Provide a password">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="bh_email" placeholder="Provide an email">
+      </div>
+      <div class="mb-3">
+        <select name="" class="form-select" id="bh_dm_code" style="width: 100%;"></select>
+      </div>
+      <div class="mb-3">
+        <select name="" class="form-select" id="bh_as_code" style="width: 100%;"></select>
+      </div>
+        <select name="" class="form-select" id="branch_code" style="width: 100%;"></select>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="addBH">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Edit Modal -->
+<div class="modal fade" id="hoBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit User Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="div_append"></div>
+        <input type="hidden" id="uid" value="">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="ho_full_name" placeholder="Provide a full name">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="ho_username" placeholder="Provide a username">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="ho_password" placeholder="Provide a password">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="ho_email" placeholder="Provide an email">
+      </div>
+      <select name="" class="form-select ho_code" id="ho_code" style="width: 100%;">
+        
+      </select>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary editUser" id="button">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('../includes/include_main_footer.ejs') %>
+
+<script src="js/users.js"></script>
+
+
+

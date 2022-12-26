@@ -1,0 +1,97 @@
+<%- include('../includes/include_main_header') %>
+
+        
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-box"></i>
+                  </span> District Managers
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBackdrop">
+                        <i class="mdi mdi-account-plus"></i>
+                        Add a new DM
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-12 stretch-card grid-margin">
+                  <div class="card bg-gradient-dark card-img-holder text-white">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                      <table class="table table-dark" id="example" style="width: 100%;">
+                        <thead>
+                          <tr>
+                            <div class="table-responsive">
+                            <th scope="col">District No.</th>
+                            <th scope="col">District Locations</th>
+                            <th scope="col">District Managers</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Delete</th>
+                            </div>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- content-wrapper ends -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="addBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add a new district</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="district_location" placeholder="Provide a district location">
+        </div>
+        <input type="text" class="form-control" id="district_manager" placeholder="Provide a district manager">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="addDistrict">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="EditBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Update a branch</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="u_districtcode">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="u_district_location" placeholder="Provide a branch location">
+      </div>
+        <input type="text" class="form-control" id="u_district_manager" placeholder="Provide a branch head">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="editDistrict">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('../includes/include_main_footer.ejs') %>
+
+<script src="js/districts.js"></script>
+

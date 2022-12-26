@@ -1,0 +1,90 @@
+<%- include('../includes/include_main_header') %>
+
+        
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-box"></i>
+                  </span> Usergroups
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBackdrop">
+                        <i class="mdi mdi-account-plus"></i>
+                        Add new groups
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-12 stretch-card grid-margin">
+                  <div class="card bg-gradient-dark card-img-holder text-white">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                      <table class="table table-dark" id="example" style="width: 100%;">
+                        <thead>
+                          <tr>
+                            <div class="table-responsive">
+                            <th scope="col">Group Code</th>
+                            <th scope="col">Group Name</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Delete</th>
+                            </div>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- content-wrapper ends -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="addBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add new groups</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="usergroup" placeholder="Provide a group name">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="addGroup">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="EditBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Update groups</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="u_usercode">
+        <input type="text" class="form-control" id="u_group_name" placeholder="Provide a group name">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="editGroup">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('../includes/include_main_footer.ejs') %>
+
+<script src="js/usergroups.js"></script>
+

@@ -1,0 +1,260 @@
+<%- include('../includes/include_main_header') %>
+        
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-box"></i>
+                  </span> REQUEST FOR DOUBTFUL ACCOUNT EVALUATION
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <button type="button" class="btn btn-gradient-info" data-bs-toggle="modal" data-bs-target="#requestBackdrop">
+                        Request
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-12 stretch-card grid-margin">
+                  <div class="card bg-gradient-light card-img-holder" style="border: 1px solid black;">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table id="example" class="table table-striped" style="width:100%;">
+                          <thead>
+                              <tr>
+                                  <th></th>
+                                  <th>Request No.</th>
+                                  <th>Approver Status</th>
+                                  <th>Progress</th>
+                                  <th>Cancel Request</th>
+                                  <th>Date Requested</th>
+                              </tr>
+                          </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- content-wrapper ends -->
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="requestBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">REQUEST FOR DOUBTFUL ACCOUNT EVALUATION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card bg-gradient-primary card-img-holder text-white">
+            <div class="card-body">
+              <div class="row g-3">
+                <input type="hidden" name="req_id" id="request_id" value="">
+                <div class="col-md-8">
+                  <h4 for="" class="text-light">Requesting Branch</h4>
+                  <input type="text" disabled class="form-control" value="<%= branch_location %>" required>
+                </div>
+                <div class="col-md-4">
+                  <h4 for="" class="text-light">Date</h4>
+                  <input type="text" disabled class="form-control" id="dateToday" value="" required>
+                  <input type="hidden" class="form-control" name="date_requested" id="date_requested" value="" required>
+                </div>
+                <hr>
+                <h3 class="text-center"><i>CLIENT INFORMATION</i></h3>
+                <hr>
+
+                <div class="col-md-6">
+                  <h4 for="" class="text-light">Client Name</h4>
+                  <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Provide a client name" required>
+                  <div class="invalid-feedback">
+                    Provide a Client Name.
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h4 for="" class="text-light">DSB No.</h4>
+                  <input type="text" class="form-control" id="dsb_no" name="dsb_no" placeholder="Provide a dsb no." required>
+                  <div class="invalid-feedback">
+                    Provide the DSB No.
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <h4 for="" class="text-light">Age</h4>
+                  <input type="text" class="form-control" id="age" name="age" placeholder="Provide age." required>
+                  <div class="invalid-feedback">
+                    Provide the age.
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <h4 for="" class="text-light">Pension Type</h4>
+                  <input type="text" class="form-control" id="pension_type" name="pension_type" placeholder="Provide pension type." required>
+                  <div class="invalid-feedback">
+                    Provide a Pension Type.
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <h4 for="" class="text-light">Loan Term</h4>
+                  <input type="text" class="form-control" id="loan_term" name="loan_term" placeholder="Provide loan term." required>
+                  <div class="invalid-feedback">
+                    Provide the loan term.
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h4 for="" class="text-light">Outstanding Balance</h4>
+                  <input type="text" class="form-control" id="outstanding_balance" name="outstanding_balance" placeholder="Provide an Outstanding Balance." required>
+                  <div class="invalid-feedback">
+                    Provide an Outstanding Balance
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <h4 for="" class="text-light">Last Payment Date</h4>
+                  <input type="date" class="form-control" id="last_payment_date" name="last_payment_date" required>
+                  <div class="invalid-feedback">
+                    Provide an Outstanding Balance
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <h4 for="" class="text-light">SSS/GSIS No.</h4>
+                  <input type="text" class="form-control" id="sss_no" name="sss_no" placeholder="Provide client's SSS/GSIS No." required>
+                  <div class="invalid-feedback">
+                    Provide client's SSS/GSIS No.
+                  </div>
+                </div>
+
+
+                <div class="col-md-3">
+                  <h4 for="" class="text-light">Account Type</h4>
+                  <select class="form-select" required id="account_type" name="account_type" style="height: 47px;
+                   color: #5F5D5D; font-size: 13px;">
+                    <option selected disabled value="">Select an account type</option>
+                    <option value="ATM">ATM</option>
+                    <option value="Passbook">Passbook</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    select an account type.
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                  <h4 for="" class="text-light">Name of Co-Borrower</h4>
+                  <input type="text" class="form-control" id="nco_borrower" name="nco_borrower" placeholder="Input the name of co-borrower" required>
+                  <div class="invalid-feedback">
+                    Provide the name of co-borrower
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <h4 for="" class="text-light">Bank Name</h4>
+                  <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Input the bank name" required>
+                  <div class="invalid-feedback">
+                    Provide the client bank name
+                  </div>
+                </div>
+
+                <!-- <hr>
+                <h3 class="text-center"><i>ACTIONS TAKEN <hr><h5>PRIMARY REQUIREMENTS<hr></h5></i></h3>
+                
+                <div class="col-md-6 text-center" style="border: 1px solid whitesmoke; padding: 1em;">
+                  <h4>
+                    DECEASED BORROWER
+                  </h4><br>
+                  <div style="display: flex; justify-content: space-around;">
+                    <div>
+                      <input type="checkbox"> SSS Verification
+                    </div>
+                    <div>
+                      <input type="checkbox"> Death Certificate
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6" style="border: 1px solid whitesmoke; padding: 1em;">
+                  <div class="text-center">
+                    OTHER THAN DECEASED <input type="text" required>
+                    <div class="invalid-feedback">
+                      Provide an Outstanding Balance
+                    </div>
+                  </h4>
+                  </div>
+                  <h4><br>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));">
+                    <div>
+                      <input type="checkbox"> SSS Verification
+                    </div>
+                    <div>
+                      <input type="checkbox"> Collection Letter
+                    </div>
+                    <div>
+                      <input type="checkbox"> Demand Letter
+                    </div>
+                    <div>
+                      <input type="checkbox"> Barangay Complaint
+                    </div>
+                    <div>
+                      <input type="checkbox"> Small Claims (20k & Above loan balance)
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="col-12">
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                </div> -->
+
+                <div>
+                  <button style="float: right;" id="submitId" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="viewBackdrop" aria-hidden="true" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-gradient-warning">
+      <div class="modal-header ">
+        <h5 class="modal-title text-secondary" id="requestNo"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="slide-container swiper">
+          <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper" id="swiper_append">
+              </div>
+          </div>
+
+          <div class="swiper-button-next swiper-navBtn"></div>
+          <div class="swiper-button-prev swiper-navBtn"></div>
+          <br><br><div class="swiper-pagination"></div>
+        </div>
+            <!-- Swiper JS -->
+            <script src="js/swiper-bundle.min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../includes/include_main_footer.ejs') %>
+
+<script src="js/request.js"></script>

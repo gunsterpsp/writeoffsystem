@@ -1,0 +1,70 @@
+<%- include('../includes/include_main_header') %>
+        
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-box"></i>
+                  </span> COMPLETED REQUEST LIST
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-12 stretch-card grid-margin">
+                  <div class="card bg-gradient-light card-img-holder" style="border: 1px solid black;">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table id="example" class="table table-striped" style="width:100%;">
+                          <thead>
+                              <tr>
+                                  <th></th>
+                                  <th>Request No.</th>
+                                  <th>Approver Status</th>
+                                  <th>Progress</th>
+                                  <th>Date Requested</th>
+                              </tr>
+                          </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- content-wrapper ends -->
+
+
+<div class="modal fade" id="viewBackdrop" aria-hidden="true" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-gradient-warning">
+      <div class="modal-header ">
+        <h5 class="modal-title text-secondary" id="requestNo"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="slide-container swiper">
+          <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper" id="swiper_append">
+              </div>
+          </div>
+
+          <div class="swiper-button-next swiper-navBtn"></div>
+          <div class="swiper-button-prev swiper-navBtn"></div>
+          <br><br><div class="swiper-pagination"></div>
+        </div>
+            <!-- Swiper JS -->
+            <script src="js/swiper-bundle.min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../includes/include_main_footer.ejs') %>
+
+<script src="js/completed.js"></script>

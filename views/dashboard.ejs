@@ -1,0 +1,225 @@
+<%- include('../includes/include_main_header') %>
+
+        <% if(user_code == 1) { %>
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-home"></i>
+                  </span> Dashboard
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-3 stretch-card grid-margin">
+                  <div class="card bg-gradient-danger card-img-holder text-white">
+                    <div class="card-body">
+                      <h3 class="font-weight-normal mb-3">
+                        User Accounts <i class="mdi mdi-account mdi-24px float-right"></i>
+                      </h3>
+                      <h2 class="mb-5" id="totalAccounts"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin">
+                  <div class="card bg-gradient-info card-img-holder text-white">
+                    <div class="card-body">
+                      <h3 class="font-weight-normal mb-3">Total Branches <i class="mdi mdi-source-branch mdi-24px float-right"></i>
+                      </h3>
+                      <h2 class="mb-5" id="totalBranches"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin">
+                  <div class="card bg-gradient-success card-img-holder text-white">
+                    <div class="card-body">
+                      <h3 class="font-weight-normal mb-3">Total Areas  <i class="mdi mdi-image-area mdi-24px float-right"></i>
+                      </h3>
+                      <h2 class="mb-5" id="totalAreas"></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 stretch-card grid-margin">
+                  <div class="card bg-gradient-dark card-img-holder text-white">
+                    <div class="card-body">
+                      <h3 class="font-weight-normal mb-3">Total Districts <i class="mdi mdi-hospital-building mdi-24px float-right"></i>
+                      </h3>
+                      <h2 class="mb-5" id="totalDistricts"></h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <% } else if(user_code == 5) { %>
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="page-header">
+                <h3 class="page-title">
+                  <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-home"></i>
+                  </span> Dashboard
+                </h3>
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                      <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="row">
+                <div class="col-md-4 stretch-card grid-margin">
+                  <div class="card bg-gradient-danger card-img-holder text-white">
+                    <a href="/request" class="text-light" style="text-decoration: none;">
+                    <div class="card-body">
+                      <h3 class="font-weight-normal mb-3">
+                        My Request Write-Off <i class="mdi mdi-account mdi-24px float-right"></i>
+                      </h3>
+                      <h2 class="mb-5" id="totalMyRequest"></h2>
+                    </div>
+                      </a>
+                  </div>
+                </div>
+                <div class="col-md-4 stretch-card grid-margin">
+                  <div class="card bg-gradient-info card-img-holder text-white">
+                    <a href="/review" class="text-light" style="text-decoration: none;">
+                    <div class="card-body">
+                      <h3 class="font-weight-normal mb-3">Review Write-Off <i class="mdi mdi-source-branch mdi-24px float-right"></i>
+                      </h3>
+                      <h2 class="mb-5" id="totalReview"></h2>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4 stretch-card grid-margin">
+                  <div class="card bg-gradient-success card-img-holder text-white">
+                    <a href="/completed" class="text-light" style="text-decoration: none;">
+                    <div class="card-body">
+                      <h3 class="font-weight-normal mb-3">Completed Write-Off <i class="mdi mdi-image-area mdi-24px float-right"></i>
+                      </h3>
+                      <h2 class="mb-5" id="totalCompleted"></h2>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          <% }else {
+            %>
+            <div class="main-panel">
+              <div class="content-wrapper">
+                <div class="page-header">
+                  <h3 class="page-title">
+                    <span class="page-title-icon bg-gradient-primary text-white me-2">
+                      <i class="mdi mdi-home"></i>
+                    </span> Dashboard
+                  </h3>
+                  <nav aria-label="breadcrumb">
+                    <ul class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page">
+                        <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 stretch-card grid-margin">
+                    <div class="card bg-gradient-danger card-img-holder text-white">
+                      <a href="/review_request" class="text-light"  style="text-decoration: none;">
+                      <div class="card-body">
+                        <h3 class="font-weight-normal mb-3">
+                          Pending's <i class="mdi mdi-account mdi-24px float-right"></i>
+                        </h3>
+                        <h2 class="mb-5" id="pendingRequest"></h2>
+                      </div>
+                    </a>
+                  </div>
+                  </div>
+               
+                  <div class="col-md-4 stretch-card grid-margin">
+                    <div class="card bg-gradient-info card-img-holder text-white">
+                      <a href="/review_request" class="text-light" style="text-decoration: none;">
+                      <div class="card-body">
+                        <h3 class="font-weight-normal mb-3">My Approved <i class="mdi mdi-source-branch mdi-24px float-right"></i>
+                        </h3>
+                        <h2 class="mb-5" id="myApproved"></h2>
+                      </div>
+                        </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4 stretch-card grid-margin">
+                    <div class="card bg-gradient-success card-img-holder text-white">
+                      <a href="/review_request" class="text-light" style="text-decoration: none;">
+                      <div class="card-body">
+                        <h3 class="font-weight-normal mb-3">Rejected <i class="mdi mdi-image-area mdi-24px float-right"></i>
+                        </h3>
+                        <h2 class="mb-5" id="myReject"></h2>
+                      </div>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+            <%
+          } %>
+ 
+              <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">MY RECENT REQUEST</h4>
+                      <div class="table-responsive">
+                        <table id="example" class="table table-striped" style="width:100%;">
+                          <thead>
+                              <tr>
+                                  <th></th>
+                                  <th>Request No.</th>
+                                  <th>Approver Status</th>
+                                  <th>Progress</th>
+                                  <th>Date Requested</th>
+                              </tr>
+                          </thead>
+                      </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- content-wrapper ends -->
+
+
+<div class="modal fade" id="viewBackdrop" aria-hidden="true" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-gradient-warning">
+      <div class="modal-header ">
+        <h5 class="modal-title text-secondary" id="requestNo"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="slide-container swiper">
+          <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper" id="swiper_append">
+              </div>
+          </div>
+
+          <div class="swiper-button-next swiper-navBtn"></div>
+          <div class="swiper-button-prev swiper-navBtn"></div>
+          <br><br><div class="swiper-pagination"></div>
+        </div>
+            <!-- Swiper JS -->
+            <script src="js/swiper-bundle.min.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+   
+
+<%- include('../includes/include_main_footer.ejs') %>
+
+<script src="js/dashboard.js"></script>
