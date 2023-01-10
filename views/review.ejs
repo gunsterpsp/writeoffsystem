@@ -23,7 +23,6 @@
                         <table id="example" class="table table-striped" style="width:100%;">
                           <thead>
                               <tr>
-                                  <th></th>
                                   <th>Request No.</th>
                                   <th>Approver Status</th>
                                   <th>Progress</th>
@@ -226,26 +225,16 @@
 
 
 <div class="modal fade" id="viewBackdrop" aria-hidden="true" data-bs-backdrop="static" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content bg-gradient-warning">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
       <div class="modal-header ">
         <h5 class="modal-title text-secondary" id="requestNo"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-
-        <div class="slide-container swiper">
-          <div class="slide-content">
-              <div class="card-wrapper swiper-wrapper" id="swiper_append">
-              </div>
-          </div>
-
-          <div class="swiper-button-next swiper-navBtn"></div>
-          <div class="swiper-button-prev swiper-navBtn"></div>
-          <br><br><div class="swiper-pagination"></div>
-        </div>
-            <!-- Swiper JS -->
-            <script src="js/swiper-bundle.min.js"></script>
+      <div class="modal-body">        
+        <div id="append_details"></div>
+        <div id="approver_details" class="row g-1 bg-gradient-warning" style="padding: 0 2em 2em 2em;">
+      </div>
       </div>
     </div>
   </div>

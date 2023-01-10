@@ -127,8 +127,13 @@ dashboardRouter.get("/dashboard/districts/count", (req, res) => {
 
 dashboardRouter.get("/api/recent_request/transaction/:request_id", (req, res) => {
   const request_id = req.params.request_id
-  const sql = `SELECT t1.review_by,t1.approval_date,t1.approver_remarks,t2.group_name,t1.position FROM tbl_request_folder t1 \
-  LEFT JOIN tbl_usergroup t2 ON t1.approver_code = t2.user_code WHERE t1.request_id = '${request_id}'`
+  const sql = `SELECT t1.full_name,t2.branch_location,t1.date_requested,t1.client_name,
+  t1.dsb_no,t1.age,t1.pension_type,t1.loan_term,t1.outstanding_balance,t1.last_payment_date,
+  t1.sss_no,t1.account_type,t1.nco_borrower,t1.bank_name,t1.branch_remarks,t1.dec_borrower_1,t1.dec_borrower_2,
+  t1.other_than_dec,t1.other_than_dec_1,t1.other_than_dec_2,t1.other_than_dec_3,
+  t1.other_than_dec_4,t1.other_than_dec_5,co_borrower_1,co_borrower_2,co_borrower_3,co_borrower_4,secondary_option_1,
+  secondary_option_2,secondary_option_3,secondary_option_4 FROM tbl_request_folder t1 LEFT JOIN 
+  tbl_branch_list t2 ON t1.branch_requested = t2.branch_code WHERE t1.request_id = '${request_id}' GROUP BY request_id`
   db.query(sql, (err, data) => {
       try {
           res.json(data)
@@ -138,6 +143,18 @@ dashboardRouter.get("/api/recent_request/transaction/:request_id", (req, res) =>
   })
 })
 
+
+dashboardRouter.get("/api/all/approver/:request_id", (req, res) => {
+  const request_id = req.params.request_id
+  const sql = `SELECT * FROM tbl_request_folder WHERE request_id = '${request_id}'`
+  db.query(sql, (err, data) => {
+      try {
+          res.json(data)
+      } catch (err) {
+          console.log(err)
+      }
+  })
+})
 
 
 dashboardRouter.get("/api/recent_request/read", (req, res) => {

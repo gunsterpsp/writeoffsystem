@@ -26,7 +26,6 @@
                         <table id="example" class="table table-striped" style="width:100%;">
                           <thead>
                               <tr>
-                                  <th></th>
                                   <th>Request No.</th>
                                   <th>Approver Status</th>
                                   <th>Progress</th>
@@ -59,21 +58,20 @@
           <div class="col-md-12 stretch-card grid-margin">
             <div class="card bg-gradient-primary card-img-holder text-white">
             <div class="card-body">
-              <div class="row g-3">
+              <div class="row g-1">
                 <input type="hidden" name="req_id" id="request_id" value="">
                 <div class="col-md-8">
                   <h4 for="" class="text-light">Requesting Branch</h4>
-                  <input type="text" disabled class="form-control" value="<%= branch_location %>" required>
+                  <input type="text" disabled class="form-control" value="<%= full_name %> - <%= branch_location %>" required>
                 </div>
                 <div class="col-md-4">
                   <h4 for="" class="text-light">Date</h4>
                   <input type="text" disabled class="form-control" id="dateToday" value="" required>
                   <input type="hidden" class="form-control" name="date_requested" id="date_requested" value="" required>
                 </div>
-                <hr>
-                <h3 class="text-center"><i>CLIENT INFORMATION</i></h3>
-                <hr>
-
+                <div class="text-center bg-secondary col-md-12" style="padding: .5em;">
+                 CLIENT INFORMATION
+                </div>
                 <div class="col-md-6">
                   <h4 for="" class="text-light">Client Name</h4>
                   <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Provide a client name" required>
@@ -166,54 +164,80 @@
                   </div>
                 </div>
 
-                <!-- <hr>
-                <h3 class="text-center"><i>ACTIONS TAKEN <hr><h5>PRIMARY REQUIREMENTS<hr></h5></i></h3>
-                
-                <div class="col-md-6 text-center" style="border: 1px solid whitesmoke; padding: 1em;">
-                  <h4>
-                    DECEASED BORROWER
-                  </h4><br>
+                <div class="text-center bg-secondary col-md-12" style="padding: .5em;">
+                  ACTIONS TAKEN
+                 </div>
+                 <div class="text-center bg-light col-md-12 text-dark" style="padding: .5em;">
+                  <i>PRIMARY REQUIREMENTS</i>
+                 </div>
+                <div class="col-md-6" style="border: 1px solid whitesmoke; padding: 1em;">
+                  <div><h4>DECEASED BORROWER</h4></div>
                   <div style="display: flex; justify-content: space-around;">
                     <div>
-                      <input type="checkbox"> SSS Verification
+                      <input type="checkbox" value="true" id="dec_borrower_1"> SSS Verification
                     </div>
                     <div>
-                      <input type="checkbox"> Death Certificate
+                      <input type="checkbox" id="dec_borrower_2"> Death Certificate
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-6" style="border: 1px solid whitesmoke; padding: 1em;">
-                  <div class="text-center">
-                    OTHER THAN DECEASED <input type="text" required>
-                    <div class="invalid-feedback">
-                      Provide an Outstanding Balance
-                    </div>
-                  </h4>
-                  </div>
-                  <h4><br>
-                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));">
+                <div class="col-md-6" style="border: 1px solid whitesmoke; padding: 1em;" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));">
+                    <div><h4>OTHER THAN DECEASED <input type="text" id="other_than_dec" class="form-control" required></h4></div>
                     <div>
-                      <input type="checkbox"> SSS Verification
+                      <input type="checkbox" id="other_than_dec_1"> SSS Verification
                     </div>
                     <div>
-                      <input type="checkbox"> Collection Letter
+                      <input type="checkbox" id="other_than_dec_2"> Collection Letter
                     </div>
                     <div>
-                      <input type="checkbox"> Demand Letter
+                      <input type="checkbox" id="other_than_dec_3"> Demand Letter
                     </div>
                     <div>
-                      <input type="checkbox"> Barangay Complaint
+                      <input type="checkbox" id="other_than_dec_4"> Barangay Complaint
                     </div>
                     <div>
-                      <input type="checkbox"> Small Claims (20k & Above loan balance)
+                      <input type="checkbox" id="other_than_dec_5"> Small Claims (20k & Above loan balance)
                     </div>
-                  </div>
-                </div> -->
+                </div>
 
-                <!-- <div class="col-12">
-                  <button class="btn btn-primary" type="submit">Submit</button>
-                </div> -->
+
+                <div class="col-md-12" style="border: 1px solid whitesmoke; padding: 1em;" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));">
+                  <div class="text-light"><h4>CO-BORROWER</h4></div>
+                    <div>
+                      <input type="checkbox" id="cb_1"> Collection Letter
+                    </div>
+                    <div>
+                      <input type="checkbox" id="cb_2"> Demand Letter
+                    </div>
+                    <div>
+                      <input type="checkbox" id="cb_3"> Barangay Complaint
+                    </div>
+                    <div>
+                      <input type="checkbox" id="cb_4"> Small Claims (20k & Above loan balance)
+                    </div>
+                </div>
+
+                <div class="text-center bg-light col-md-12 text-dark" style="padding: .5em;">
+                  <i>SECONDARY REQUIREMENTS</i>
+                 </div>
+                 <div class="col-md-12" style="border: 1px solid whitesmoke; padding: 1em;" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));">
+                    <div>
+                      <input type="checkbox" id="so_1"> Death Certicate (Demise to Co-Borrower)
+                    </div>
+                    <div>
+                      <input type="checkbox" id="so_2"> Certificate of Indigency or any proof of financial incapacity of borrower or co-borrower (if any)
+                    </div>
+                    <div>
+                      <input type="checkbox" id="so_3"> Certificate of Non-Residency or any proof of unlocation of borrower or co-borrower (if any)
+                    </div>
+                    <div>
+                      <input type="checkbox" id="so_4"> Any proof that barangay does not accept loan complaints
+                    </div>
+                </div>
+
+                <div><h4>Remarks <input type="text" id="branch_remarks" placeholder="Provide your remarks" class="form-control" required></h4></div>
+
 
                 <div>
                   <button style="float: right;" id="submitId" class="btn btn-primary">Submit</button>
@@ -230,26 +254,16 @@
 
 
 <div class="modal fade" id="viewBackdrop" aria-hidden="true" data-bs-backdrop="static" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content bg-gradient-warning">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
       <div class="modal-header ">
         <h5 class="modal-title text-secondary" id="requestNo"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-
-        <div class="slide-container swiper">
-          <div class="slide-content">
-              <div class="card-wrapper swiper-wrapper" id="swiper_append">
-              </div>
-          </div>
-
-          <div class="swiper-button-next swiper-navBtn"></div>
-          <div class="swiper-button-prev swiper-navBtn"></div>
-          <br><br><div class="swiper-pagination"></div>
-        </div>
-            <!-- Swiper JS -->
-            <script src="js/swiper-bundle.min.js"></script>
+      <div class="modal-body">        
+        <div id="append_details"></div>
+        <div id="approver_details" class="row g-1 bg-gradient-warning" style="padding: 0 2em 2em 2em;">
+      </div>
       </div>
     </div>
   </div>

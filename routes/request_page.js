@@ -124,18 +124,23 @@ requestRouter.put("/api/request/cancel/:request_id", (req, res) => {
 
 })
 
+
 requestRouter.post("/api/request/add", (req, res) => {
+
 
         const sqlApprover = `SELECT * FROM tbl_receiver_list`
         db.query(sqlApprover, (err, data) => {
 
             data.forEach((row) => {
-                const sql = "INSERT INTO tbl_request_folder (`request_id`, `user_id`, \
-                `full_name`, `approver_code`, `position`, `district_code`, `area_code`, \
-                `branch_requested`, `date_requested`, \
-                `client_name`, `dsb_no`, `age`, \
-                `pension_type`, `loan_term`, `outstanding_balance`, `last_payment_date`, \
-                `sss_no`, `account_type`, `nco_borrower`, `bank_name`) VALUES (?) ORDER BY position ASC"
+
+                const sql = "INSERT INTO tbl_request_folder (`request_id`, `user_id`, `full_name`, `approver_code`, \
+                `position`, `district_code`, `area_code`, `branch_requested`, `date_requested`, `client_name`, \
+                `dsb_no`, `age`, `pension_type`, `loan_term`, `outstanding_balance`, \
+                `last_payment_date`, `sss_no`, `account_type`, `nco_borrower`, `bank_name`, \
+                `dec_borrower_1`, `dec_borrower_2`, `other_than_dec`, `other_than_dec_1`, `other_than_dec_2`, \
+                `other_than_dec_3`, `other_than_dec_4`, `other_than_dec_5`, `co_borrower_1`, `co_borrower_2`, \
+                `co_borrower_3`, `co_borrower_4`, `secondary_option_1`, `secondary_option_2`, `secondary_option_3`, \
+                `secondary_option_4`, `branch_remarks`) VALUES (?) ORDER BY position ASC"
                 const values = [
                     req.body.request_id,
                     req.session.user_id,
@@ -156,17 +161,100 @@ requestRouter.post("/api/request/add", (req, res) => {
                     req.body.sss_no,
                     req.body.account_type,
                     req.body.nco_borrower,
-                    req.body.bank_name
+                    req.body.bank_name,
+                    req.body.dec_borrower_1,
+                    req.body.dec_borrower_2,
+                    req.body.other_than_dec,
+                    req.body.other_than_dec_1,
+                    req.body.other_than_dec_2,
+                    req.body.other_than_dec_3,
+                    req.body.other_than_dec_4,
+                    req.body.other_than_dec_5,
+                    req.body.cb_1,
+                    req.body.cb_2,
+                    req.body.cb_3,
+                    req.body.cb_4,
+                    req.body.so_1,
+                    req.body.so_2,
+                    req.body.so_3,
+                    req.body.so_4,
+                    req.body.branch_remarks,
                 ]
+    
                     db.query(sql, [values], (err, data) => {
-                        try {
-                            res.json("added")
-                        } catch (err) {
-                            console.log(err)
-                        }
+                            try {
+                                res.json(data)
+                                console.log(data)
+                            } catch (err) {
+                                console.log(err)
+                            }
                     })
+
             })
+
         })
 })
+
+
+// requestRouter.post("/api/request/add", (req, res) => {
+
+//         const sqlApprover = `SELECT * FROM tbl_receiver_list`
+//         db.query(sqlApprover, (err, data) => {
+
+//             data.forEach((row) => {
+//                 const sql = "INSERT INTO tbl_request_folder (`request_id`, `user_id`, `full_name`, \
+//                 `approver_code`, `position`, `district_code`, `area_code`, `branch_requested`, \
+//                 `date_requested`, `client_name`, `dsb_no`, `age`, `pension_type`, `loan_term`, \
+//                 `outstanding_balance`, `last_payment_date`, `sss_no`, `account_type`, `nco_borrower`, \
+//                 `bank_name` VALUES (?) ORDER BY position ASC"
+//                 const values = [
+                    // req.body.request_id,
+                    // req.session.user_id,
+                    // req.session.full_name,
+                    // row.approver_code,
+                    // row.position,
+                    // req.session.district_code,
+                    // req.session.area_code,
+                    // req.session.branch_code,
+                    // req.body.date_requested,
+                    // req.body.client_name,
+                    // req.body.dsb_no,
+                    // req.body.age,
+                    // req.body.pension_type,
+                    // req.body.loan_term,
+                    // req.body.outstanding_balance,
+                    // req.body.last_payment_date,
+                    // req.body.sss_no,
+                    // req.body.account_type,
+                    // req.body.nco_borrower,
+                    // req.body.bank_name,
+//                     // req.body.dec_borrower_1,
+//                     // req.body.dec_borrower_2,
+//                     // req.body.other_than_dec,
+//                     // req.body.other_than_dec_1,
+//                     // req.body.other_than_dec_2,
+//                     // req.body.other_than_dec_3,
+//                     // req.body.other_than_dec_4,
+//                     // req.body.other_than_dec_5,
+//                     // req.body.co_borrower_1,
+//                     // req.body.co_borrower_2,
+//                     // req.body.co_borrower_3,
+//                     // req.body.co_borrower_4,
+//                     // req.body.second_option_1,
+//                     // req.body.second_option_2,
+//                     // req.body.second_option_3,
+//                     // req.body.second_option_4,
+//                     // req.body.branch_remarks
+//                 ]
+//                     db.query(sql, [values], (err, data) => {
+//                         try {
+//                             res.json("added")
+//                         } catch (err) {
+//                             console.log(err)
+//                         }
+//                     })
+//             })
+//         })
+// })
 
 module.exports = requestRouter

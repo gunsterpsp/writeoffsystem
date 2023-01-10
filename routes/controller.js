@@ -108,7 +108,7 @@ controller.get("/dashboard/my_approved/:approver_code", dashboardRouter)
 controller.get("/dashboard/my_reject/:approver_code", dashboardRouter)
 controller.get("/api/recent_request/read", dashboardRouter)
 controller.get("/api/recent_request/transaction/:request_id", dashboardRouter)
-
+controller.get("/api/all/approver/:request_id", dashboardRouter)
 
 
 

@@ -9,7 +9,7 @@ const db = require("./database/connection")
 const flash = require("connect-flash")
 require('dotenv').config()
 const sessionStore = require("./database/session_store")
-
+const port = process.env.PORT
 
 // EXPRESS START
 const app = express()
@@ -183,7 +183,7 @@ app.get("/dashboard/my_approved/:approver_code", controller)
 app.get("/dashboard/my_reject/:approver_code", controller)
 app.get("/api/recent_request/read", controller)
 app.get("/api/recent_request/transaction/:request_id", controller)
-
+app.get("/api/all/approver/:request_id", controller)
 
 
 
@@ -216,8 +216,7 @@ app.put("/api/review_request/reject/:id", controller) // user page
 
 
 
-// LOCALHOST 3500 LISTEN
-app.listen(3500, () => {
-    console.log("Connected to port", 3500)
+// LOCALHOST 3000 LISTEN
+app.listen(port, () => {
+    console.log("Connected to port", port)
 })
-
